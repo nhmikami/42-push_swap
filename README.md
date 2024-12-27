@@ -4,7 +4,7 @@ This project aims to sort data on a stack, with a limited set of instructions, u
 
 ## Description
 We start with two stacks: stack `a` contains a list of integers and stack `b` is empty. <br />
-The goal is to sort in ascending order numbers into stack `a` using only the following operations:
+The goal is to sort numbers in ascending order in stack `a` using only the following operations:
 * `sa` (swap a): swap the first 2 elements at the top of stack a - do nothing if there is only one or no elements
 * `sb` (swap b): swap the first 2 elements at the top of stack b - do nothing if there is only one or no elements
 * `ss` : `sa` and `sb` at the same time
@@ -59,17 +59,17 @@ The [visualizer](https://github.com/o-reo/push_swap_visualizer) helps illustrate
   6
   ```
 
-To achieve full score, we need to perform the sorting with a limited number of operations
-* For 3 numbers: 3 moves
-* For 5 numbers: 12 moves
-* For 100 numbers: 700 moves
-* For 500 numbers: 5500 moves
+  To achieve full score, we need to perform the sorting with a limited number of operations
+  - For 3 numbers: 3 moves
+  - For 5 numbers: 12 moves
+  - For 100 numbers: 700 moves
+  - For 500 numbers: 5500 moves
 
 ## Bonus
-For the bons part, the `checker` program receives a list of integers as argument and reads the instructions on the standard input.<br />
+For the bonus part, the `checker` program receives a list of integers as argument and reads the instructions on the standard input.<br />
 Once all the instructions have been read, the program checks if the **stack a is sorted** and if **stack b is empty**.<br />
 
-* Compile the `checker` program
+* Compile
   ```sh
   make bonus
   ```
