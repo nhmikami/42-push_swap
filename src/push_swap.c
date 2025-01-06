@@ -5,14 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/18 16:48:49 by naharumi          #+#    #+#             */
-/*   Updated: 2024/12/19 16:54:00 by naharumi         ###   ########.fr       */
+/*   Created: 2025/01/06 14:46:25 by naharumi          #+#    #+#             */
+/*   Updated: 2025/01/06 14:46:25 by naharumi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/push_swap.h"
 
-static void	sort_a(t_stack **a, t_stack **b)
+int	is_sorted(t_stack *stack)
+{
+	while (stack->next)
+	{
+		if (stack->value > stack->next->value)
+			return (0);
+		stack = stack->next;
+	}
+	return (1);
+}
+
+static void	lowest_to_top(t_stack **a, t_stack **b)
 {
 	t_stack	*trav;
 	int		value;
@@ -86,7 +97,7 @@ static void	big_sort(t_stack **a, t_stack **b)
 		push_to_a(a, b, index);
 	}
 	if (!is_sorted(*a))
-		sort_a(a, b);
+		lowest_to_top(a, b);
 }
 
 int	main(int ac, char **av)
@@ -99,7 +110,7 @@ int	main(int ac, char **av)
 	if (ac > 1)
 	{
 		if (!get_args(&a, ac, av))
-			return (1);
+			handle_error(&a, &b);
 		if (!is_sorted(a))
 		{
 			if (stack_size(a) <= 3)

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   init_stack_bonus.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/06 14:40:06 by naharumi          #+#    #+#             */
+/*   Updated: 2025/01/06 14:40:06 by naharumi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/checker.h"
 
 void	free_stack(t_stack **stack)
@@ -41,7 +53,21 @@ static void	append_stack_node(t_stack **stack, t_stack *new_node)
 	new_node->prev = temp;
 }
 
-void	init_stack(t_stack **a, char **args)
+static void	free_arr(char **arr)
+{
+	int	index;
+
+	index = 0;
+	while (arr[index])
+	{
+		free(arr[index]);
+		index++;
+	}
+	free(arr);
+	return ;
+}
+
+int	init_stack(t_stack **a, char **args)
 {
 	int		i;
 	int		value;
@@ -53,19 +79,13 @@ void	init_stack(t_stack **a, char **args)
 		value = ft_atoi(args[i]);
 		if (!is_valid_int(args[i]) || !check_duplicate(*a, value))
 		{
-			write(2, "Error\n", 6);
-			free_stack(a);
-			exit(EXIT_FAILURE);
+			free_arr(args);
+			return (0);
 		}
 		node = new_stack_node(value);
 		append_stack_node(a, node);
 		i++;
 	}
-	i = 0;
-	while (args[i])
-	{
-		free(args[i]);
-		i++;
-	}
-	free(args);
+	free_arr(args);
+	return (1);
 }

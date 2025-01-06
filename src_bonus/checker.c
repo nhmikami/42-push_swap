@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/06 14:40:01 by naharumi          #+#    #+#             */
+/*   Updated: 2025/01/06 14:40:01 by naharumi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/checker.h"
 
 void	execute_operation(t_stack **a, t_stack **b, char *op)
@@ -51,7 +63,7 @@ int	main(int ac, char **av)
 	if (ac > 1)
 	{
 		if (!get_args(&a, ac, av))
-			return (1);
+			handle_error(&a, &b);
 		checker(&a, &b);
 		if (is_sorted(a) && stack_size(b) == 0)
 			write(1, "OK\n", 3);

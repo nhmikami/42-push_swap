@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker.h                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/06 14:38:08 by naharumi          #+#    #+#             */
+/*   Updated: 2025/01/06 14:38:08 by naharumi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef CHECKER_H
 # define CHECKER_H
 
@@ -18,14 +30,14 @@ int		is_valid_int(const char *str);
 int		check_duplicate(t_stack *stack, int value);
 
 // initialize stack
-void	init_stack(t_stack **a, char **args);
+int		init_stack(t_stack **a, char **args);
 void	free_stack(t_stack **stack);
 
 // operations
 void	swap(t_stack **stack);
+void	push(t_stack **stack_1, t_stack **stack_2);
 void	rotate(t_stack **stack);
 void	reverse_rotate(t_stack **stack);
-void	push(t_stack **stack_1, t_stack **stack_2);
 void	do_both(t_stack **a, t_stack **b, char *op);
 
 // utils

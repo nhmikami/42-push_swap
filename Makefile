@@ -32,10 +32,10 @@ INC				=	-I$(INC_PATH)
 
 LIBFT			=	$(LIB_PATH)/libft.a
 
+all:				$(NAME)
+
 $(LIBFT):
 					make -C $(LIB_PATH) -s
-
-all:				$(NAME)
 
 $(NAME):			$(LIBFT) $(OBJ)
 						$(CC) $(CFLAGS) $(OBJ) -L$(LIB_PATH) -lft -o $(NAME)

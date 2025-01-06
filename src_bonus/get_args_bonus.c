@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_args_bonus.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: naharumi <naharumi@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/06 14:40:03 by naharumi          #+#    #+#             */
+/*   Updated: 2025/01/06 14:40:03 by naharumi         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../include/checker.h"
 
 int	is_valid_int(const char *str)
@@ -48,10 +60,7 @@ static int	check_args(int ac, char **av)
 	while (i < ac)
 	{
 		if (av[i][0] == '\0')
-		{
-			write(2, "Error\n", 6);
 			return (0);
-		}
 		i++;
 	}
 	return (1);
@@ -77,6 +86,7 @@ int	get_args(t_stack **a, int ac, char **av)
 		return (0);
 	arr = ft_split(args, ' ');
 	free(args);
-	init_stack(a, arr);
+	if (!init_stack(a, arr))
+		return (0);
 	return (1);
 }
