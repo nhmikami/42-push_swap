@@ -28,7 +28,7 @@ int	is_valid_int(const char *str)
 		str++;
 	}
 	if (!*str)
-		return (false);
+		return (0);
 	while (*str)
 	{
 		if (!(*str >= '0' && *str <= '9'))

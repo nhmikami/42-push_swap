@@ -123,18 +123,3 @@ int	main(int ac, char **av)
 	free_stack(&b);
 	return (0);
 }
-
-// cc src/*.c libft/libft/*.c
-
-	/*printf("stack a:\n");
-	while (a)
-	{
-		printf("Value: %d, index: %d, cost: %d\n", a->value, a->index, a->cost);
-		a = a->next;
-	}
-	printf("stack b:\n");
-	while (b)
-	{
-		printf("Value: %d, index: %d, cost: %d\n", b->value, b->index, b->cost);
-		b = b->next;
-	}*/
