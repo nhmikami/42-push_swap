@@ -12,23 +12,15 @@
 
 #include "../include/push_swap.h"
 
-int	find_cheaper(t_stack *stack)
+int	calculate_steps(t_stack *stack, int index)
 {
-	int	cost;
-	int	index;
+	int	steps;
 
-	cost = stack->cost;
-	index = stack->index;
-	while (stack)
-	{
-		if (stack->cost < cost)
-		{
-			cost = stack->cost;
-			index = stack->index;
-		}
-		stack = stack->next;
-	}
-	return (index);
+	if (index <= (stack_size(stack) - 1) / 2)
+		steps = index;
+	else
+		steps = stack_size(stack) - index;
+	return (steps);
 }
 
 static int	define_target_b(t_stack *b, int value)

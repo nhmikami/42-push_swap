@@ -44,15 +44,23 @@ int	find_index(t_stack *stack, int value)
 	return (-1);
 }
 
-int	calculate_steps(t_stack *stack, int index)
+int	find_cheaper(t_stack *stack)
 {
-	int	steps;
+	int	cost;
+	int	index;
 
-	if (index <= (stack_size(stack) - 1) / 2)
-		steps = index;
-	else
-		steps = stack_size(stack) - index;
-	return (steps);
+	cost = stack->cost;
+	index = stack->index;
+	while (stack)
+	{
+		if (stack->cost < cost)
+		{
+			cost = stack->cost;
+			index = stack->index;
+		}
+		stack = stack->next;
+	}
+	return (index);
 }
 
 void	handle_error(t_stack **a, t_stack **b)
